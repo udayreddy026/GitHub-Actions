@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull-Request-Filter-Test
-        run: echo "Running whenever pull request is one and closed from main brach."
+        run: echo "Running whenever pull request is opened from other brach to main."
