@@ -1,0 +1,16 @@
+name: 05 - 1 - Filter-activity-types
+
+on: 
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - main
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull-Request-Filter-Test
+        run: echo "Running whenever pull request is one and closed from main brach."
