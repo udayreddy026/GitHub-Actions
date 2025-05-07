@@ -1,0 +1,28 @@
+name: 08 - Variables
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  MY_GLOBAL_VAR: "I am a global environment variable"
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    env:
+      MY_JOB_VAR: "I am a job environment variable"
+    steps:
+      - name: Display Environment Variables
+        env:
+          MY_ENV_VAR: "I am an step environment variable"
+        run: |
+          echo "Step Env Variable: $MY_ENV_VAR"
+          echo "Job Env Variable: $MY_JOB_VAR"
+          echo "Global Env Variable: $MY_GLOBAL_VAR"
+      - name: Overwritten Environment Variable
+        env:
+          MY_JOB_VAR: "I am a job environment variable, I am get overwritten by step environment variable"
+          MY_GLOBAL_VAR: "I am an global environment variable, I am get overwritten by step environment variable"
+        run: |
+          echo "Job Env Variable: $MY_JOB_VAR"
+          echo "Global Env Variable: $MY_GLOBAL_VAR"
