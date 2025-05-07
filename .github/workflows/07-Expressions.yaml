@@ -14,4 +14,4 @@ jobs:
     steps:
       - name: '[debug] Display Debug Input'
         if: ${{ github.event_name == 'push' }}
-        run: "echo \"This is a test message from the debug input: ${{ github.event.inputs.debug }}\""
+        run: "echo \"This is a test message from the event: ${{ github.event_name }}\""
