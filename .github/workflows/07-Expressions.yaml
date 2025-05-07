@@ -1,0 +1,17 @@
+name: 07 - Expressions
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      debug:
+        type: boolean
+        default: false
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: '[debug] Display Debug Input'
+        if: ${{ github.event_name == 'push' }}
+        run: "echo \"This is a test message from the debug input: ${{ github.event.inputs.debug }}\""
