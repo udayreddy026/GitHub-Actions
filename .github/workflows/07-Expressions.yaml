@@ -12,6 +12,9 @@ jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
-      - name: '[debug] Display Debug Input'
+      - name: '[debug] Display Event Name'
         if: ${{ github.event_name == 'push' }}
         run: "echo \"This is a test message from the event: ${{ github.event_name }}\""
+      - name: '[debug] Display Debug Input'
+        if: inputs.debug && github.ref == 'refs/heads/main'
+        run: "echo \"This is a test message from the debug: ${{ inputs.debug }}\""
