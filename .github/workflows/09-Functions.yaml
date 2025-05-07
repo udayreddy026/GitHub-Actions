@@ -8,14 +8,14 @@ jobs:
   echo-functions:
     runs-on: ubuntu-latest
     steps:
-      - name: Failing step
-        run: |
-            echo "This is a failing step"
-            exit 1
       - name: Sleep 
         run: |
           sleep 10
           echo "I am seelping for 10 sec"
+      - name: Failing step
+        run: |
+            echo "This is a failing step"
+            exit 1
       - name: I will be skipped
         if: ${{ success() }}
         run: |
