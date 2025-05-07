@@ -8,23 +8,15 @@ jobs:
   echo-functions:
     runs-on: ubuntu-latest
     steps:
-      - name: Sleep 
-        run: |
-          sleep 10
-          echo "I am seelping for 10 sec"
-      - name: Failing step
-        run: |
-            echo "This is a failing step"
-            exit 1
       - name: I will be skipped
         if: ${{ success() }}
         run: |
             echo "I will print when the previous step is successful"
-      - name: I will be executed
+      - name: I will be skipped
         if: ${{ failure() }}
         run: |
             echo "I will print when the previous step fails"
-      - name: I will be cancelled
+      - name: I will be executed (not cancelled)
         if: ${{ !cancelled() }}
         run: |
             echo "I will all ways print, except when the previous step is cancelled."
